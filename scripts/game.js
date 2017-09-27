@@ -41,14 +41,12 @@ function game() {
 
 	console.log(pA, pB);
 
-	$(document).ready(function () {
-		// Set main loop to be called on the desired frame rate
-		setInterval(gameLoop, 1000 / 60);
-	});
-
+	setInterval(gameLoop, 15);
 	// Main loop of the game
 	function gameLoop() {
 		moveBall();
+		movepaddleA()
+		movepaddleB()
 	}
 
 
@@ -88,15 +86,72 @@ function game() {
 			ball.y + ball.speed * ball.directionY < pB.y2) {
 			ball.directionX = -1
 		}
-
 		// Update ball position on X and Y axes based on speed and orientation
 		ball.x += ball.speed * ball.directionX;
 		ball.y += ball.speed * ball.directionY;
-		
+
 		// Render the updated ball position
 		$("#ball").css({ "left": ball.x, "top": ball.y });
 
 
 	};
 
+	var paddleB = $('#paddleB');
+	var directions = {};
+	var speed = 4;
+
+	$('html').keyup(stop).keydown(charMovement);
+
+	function charMovement(e) {
+		directions[e.which] = true;
+		console.log(directions)
+	}
+
+	function stop(e) {
+		delete directions[e.which];
+		console.log(directions)
+	}
+
+	function movepaddleB(e) {
+		for (var i in directions) 
+
+			if (paddleB.position().top > 0 && i == 38) {
+				paddleB.css("top", (paddleB.position().top - speed) + "px");
+			}
+
+			if (paddleB.position().top < ($("#game").height() - paddleB.height()) && i == 40) {
+				paddleB.css("top", (paddleB.position().top + speed) + "px");
+			}
+		
+
+
+	}
+			var paddleA = $('#paddleA');
+			var directions = {};
+			var speed = 4;
+
+			$('html').keyup(stop).keydown(charMovement);
+
+				function charMovement(e) {
+		directions[e.which] = true;
+		console.log(directions)
+	}
+
+	function stop(e) {
+		delete directions[e.which];
+		console.log(directions)
+	}
+
+		function movepaddleA(e){
+			for (var i in directions)
+
+			if(paddleA.position().top > 0 && i == 87)
+			{
+				paddleA.css("top", (paddleA.position().top - speed) + "px");
+			}
+			if(paddleA.position().top < ($("#game").width() - paddleA.width()) && i == 83)
+			{
+				paddleA.css("top", (paddleA.position().top + speed) + "px");
+	}
+		}
 }
