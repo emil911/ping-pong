@@ -1,0 +1,53 @@
+button
+{
+    background-color: #4CAF50;
+    padding: 8px 16px;
+    position : absolute ;
+    top: 50%;
+    left: 50%;
+}
+
+#game {
+  background: white;
+  width: 600px;
+  height: 300px;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+#ball {
+  background: grey;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 290px;
+  top: 140px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+#paddleA{
+
+  background: grey;
+  position: absolute;
+  width: 20px;
+  height: 100px;
+  left:50px;
+  top: 100px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+#paddleB {
+  background:grey;
+  position: absolute;
+  width: 20px;
+  height: 100px;
+  left: 550px;
+  top: 100px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
