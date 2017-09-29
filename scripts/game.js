@@ -82,8 +82,8 @@ function game() {
 		if (ball.x + ball.speed * ball.directionX > (gameWidth - parseInt($("#ball").width()))) {
 			ball.directionX = -1
 			score.pB = score.pB + 1;
-			 $("#ball").animate({ "left": ball.x, "top": ball.y }, 2000, function(){ pauseBall = false; });
-            return;
+			$("#ball").animate({ "left": ball.x, "top": ball.y }, 2000, function () { pauseBall = false; });
+			return;
 		}
 
 		// Check collision to the right border and change the moving orientation on X axis
